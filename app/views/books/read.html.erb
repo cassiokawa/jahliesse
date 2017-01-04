@@ -23,9 +23,8 @@
         <td><%= book.autor %></td>
         <td><%= book.pages %></td>
         <td><%= Estilo.find(book.estilo_id).estilo %></td>
+        <td><%= current_user.have_read?(book) %></td>
         
-           
-     
       </tr>
     <% end %>
   </tbody>

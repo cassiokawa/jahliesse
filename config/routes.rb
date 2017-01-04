@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  resources :ranks
   resources :estilos
   devise_for  :users,
               :path => '',
@@ -10,6 +11,8 @@ Rails.application.routes.draw do
       post 'mark_as_read'
     end
   end
+
+  
 
   get 'reads', to: :read, controller: 'books'
   

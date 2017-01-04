@@ -10,14 +10,19 @@ class ApplicationController < ActionController::Base
   	redirect_to root_path
   end
 
+  def rank
+    @users = User.all
+    
+  end
+
   protected
 
   	def configure_permited_params
   		devise_parameter_sanitizer.permit(:sign_up) do |user_params|
-  			user_params.permit({roles: []}, :fullname, :email,:password, :current_password, :password_confirmed )
+  			user_params.permit({roles: []}, :fullname, :email,:password, :current_password, :password_confirmed , :estilo_um, :estilo_dois, :estilo_tres, :estilo_quatro, :estilo_cinco, :trofeu_um, :trofeu_dois, :trofeu_tres, :trofeu_quatro, :trofeu_cinco)
   		end
   		devise_parameter_sanitizer.permit(:account_update) do |user_params|
-  			user_params.permit(:fullname, :email,:password, :current_password, :password_confirmed )
+  			user_params.permit(:fullname, :email,:password, :current_password, :password_confirmed, :estilo_um, :estilo_dois, :estilo_tres, :estilo_quatro, :estilo_cinco, :trofeu_um, :trofeu_dois, :trofeu_tres, :trofeu_quatro, :trofeu_cinco )
   		end
   	end
 

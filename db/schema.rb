@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170104175455) do
+ActiveRecord::Schema.define(version: 20170104192641) do
 
   create_table "books", force: :cascade do |t|
     t.string   "nome"
@@ -36,6 +36,11 @@ ActiveRecord::Schema.define(version: 20170104175455) do
 
   create_table "estilos", force: :cascade do |t|
     t.string   "estilo"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "ranks", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -77,6 +82,16 @@ ActiveRecord::Schema.define(version: 20170104175455) do
     t.string   "fullname"
     t.string   "role"
     t.integer  "point"
+    t.integer  "estilo_um",              default: 0,  null: false
+    t.integer  "estilo_dois",            default: 0,  null: false
+    t.integer  "estilo_tres",            default: 0,  null: false
+    t.integer  "estilo_quatro",          default: 0,  null: false
+    t.integer  "estilo_cinco",           default: 0,  null: false
+    t.integer  "trofeu_um",              default: 0,  null: false
+    t.integer  "trofeu_dois",            default: 0,  null: false
+    t.integer  "trofeu_tres",            default: 0,  null: false
+    t.integer  "trofeu_quatro",          default: 0,  null: false
+    t.integer  "trofeu_cinco",           default: 0,  null: false
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true

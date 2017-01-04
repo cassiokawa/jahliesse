@@ -1,0 +1,31 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Ranking dos leitores</h1>
+
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th>Leitor</th>
+      <th>Pontos</th>
+      <th> <%= Estilo.find(1).estilo  %></th>
+      <th> <%= Estilo.find(2).estilo  %></th>
+      <th> <%= Estilo.find(3).estilo  %></th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @users.each do |user| %>
+      <tr>
+        <td><%= user.fullname %></td>
+        <td><%= user.point %></td>
+        <td><%= user.estilo_um %> &nbsp;&nbsp; <% if user.trofeu_um == true %> <span class="glyphicon glyphicon-tower" aria-hidden="true"></span>  <% end %> </td>
+        <td><%= user.estilo_dois %> &nbsp;&nbsp;<% if user.trofeu_dois == true %> <span class="glyphicon glyphicon-tower" aria-hidden="true"></span>  <% end %> </td>
+        <td><%= user.estilo_tres %> &nbsp;&nbsp;<% if user.trofeu_tres == true %> <span class="glyphicon glyphicon-tower" aria-hidden="true"></span>  <% end %> </td>
+          
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>

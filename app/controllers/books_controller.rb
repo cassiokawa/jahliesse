@@ -23,11 +23,40 @@ class BooksController < ApplicationController
 
   def mark_as_read
     @book = Book.find(params[:id])
+    
     @book.mark_as_read! :for => current_user
+
     points = ((@book.pages.to_i)-1)/ 100 
     current_user.point += points+1
+    
+    case @book.estilo_id
+      when 1
+        current_user.estilo_um = current_user.estilo_um + 1
+        if current_user.estilo_um >= 5
+          current_user.trofeu_um = true
+        end      
+      when 2
+        current_user.estilo_dois = current_user.estilo_dois + 1
+        if current_user.estilo_um >= 5
+          current_user.trofeu_dois = true
+        end
+      when 3
+        current_user.estilo_tres = current_user.estilo_tres + 1
+        if current_user.estilo_um >= 5
+          current_user.trofeu_tres = true
+        end
+      when 4
+        current_user.estilo_quatro = current_user.estilo_quatro + 1
+        if current_user.estilo_um >= 5
+          current_user.trofeu_quatro = false
+        end
+    end
+
+
+
     current_user.save
     redirect_to reads_path
+
   end
 
   # GET /books/new
