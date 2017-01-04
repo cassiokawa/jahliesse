@@ -22,7 +22,7 @@
         <td><%= link_to(book.nome , book ) %></td>
         <td><%= book.autor %></td>
         <td><%= book.pages %></td>
-        <td><%= book.estilo %></td>
+        <td><%= Estilo.find(book.estilo_id).estilo %></td>
         
            
      

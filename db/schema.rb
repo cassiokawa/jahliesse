@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170104030243) do
+ActiveRecord::Schema.define(version: 20170104175455) do
 
   create_table "books", force: :cascade do |t|
     t.string   "nome"
@@ -31,6 +31,13 @@ ActiveRecord::Schema.define(version: 20170104030243) do
     t.integer  "capa_file_size"
     t.datetime "capa_updated_at"
     t.boolean  "has_read"
+    t.integer  "estilo_id"
+  end
+
+  create_table "estilos", force: :cascade do |t|
+    t.string   "estilo"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "read_marks", force: :cascade do |t|

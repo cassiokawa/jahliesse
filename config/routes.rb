@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  resources :estilos
   devise_for  :users,
               :path => '',
               :path_names => {:sign_in => 'logar', :sign_out => 'sair', :edit => 'perfil'}

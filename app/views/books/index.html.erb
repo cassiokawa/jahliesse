@@ -19,7 +19,7 @@
         <td><%= link_to(book.nome , book ) %></td>
         <td><%= book.autor %></td>
         <td><%= book.pages %></td>
-        <td><%= book.estilo %></td>
+        <td><%= Estilo.find(book.estilo_id).estilo %></td>
         <% if current_user.role == "admin" %>
           <td><%= link_to 'Show', book %></td>
           <td><%= link_to 'Edit', edit_book_path(book) %></td>
