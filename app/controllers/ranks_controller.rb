@@ -1,6 +1,6 @@
 class RanksController < ApplicationController
-  before_action :set_rank, only: [:show, :edit, :update, :destroy]
-
+  # before_action :set_rank, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!
   # GET /ranks
   # GET /ranks.json
   def index
@@ -10,6 +10,8 @@ class RanksController < ApplicationController
   # GET /ranks/1
   # GET /ranks/1.json
   def show
+    @user = User.find(params[:id])
+    @reads = Book.read_by(@user)
   end
 
   # GET /ranks/new
@@ -63,9 +65,9 @@ class RanksController < ApplicationController
 
   private
     # Use callbacks to share common setup or constraints between actions.
-    def set_rank
-      @rank = Rank.find(params[:id])
-    end
+    # def set_rank
+    #   @rank = Rank.find(params[:id])
+    # end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def rank_params

@@ -1,6 +1,6 @@
 class EstilosController < ApplicationController
   before_action :set_estilo, only: [:show, :edit, :update, :destroy]
-
+  before_action :authenticate_user!
   # GET /estilos
   # GET /estilos.json
   def index
