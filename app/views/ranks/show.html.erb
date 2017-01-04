@@ -17,12 +17,11 @@
 
   <tbody>
       <tr>
-        <td><%= @user.fullname %></td>
+        <td><%= link_to(@user.fullname, rank_path(@user.id)) %></td>
         <td><%= @user.point %></td>
-        <td><%= @user.estilo_um %> &nbsp;&nbsp; <% if @user.trofeu_um == true %> <span class="glyphicon glyphicon-tower" aria-hidden="true"></span>  <% end %> </td>
-        <td><%= @user.estilo_dois %> &nbsp;&nbsp;<% if @user.trofeu_dois == true %> <span class="glyphicon glyphicon-tower" aria-hidden="true"></span>  <% end %> </td>
-        <td><%= @user.estilo_tres %> &nbsp;&nbsp;<% if @user.trofeu_tres == true %> <span class="glyphicon glyphicon-tower" aria-hidden="true"></span>  <% end %> </td>
-          
+        <td><%= @user.estilo_um %> &nbsp;&nbsp; <% if @user.trofeu_um == 1 %> Trofeu  <% end %> </td>
+        <td><%= @user.estilo_dois %> &nbsp;&nbsp;<% if @user.trofeu_dois == 1 %> Trofeu  <% end %> </td>
+        <td><%= @user.estilo_tres %> &nbsp;&nbsp;<% if @user.trofeu_tres == 1 %> Trofeu  <% end %> </td>
       </tr>
     
   </tbody>
