@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Livros Lidos </h1>
+
+
+
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th>Nome</th>
+      <th>Autor</th>
+      <th>Pages</th>
+      <th>Estilo</th>
+      <th>Leu?</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @reads.each do |book| %>
+      <tr>
+        <td><%= link_to(book.nome , book ) %></td>
+        <td><%= book.autor %></td>
+        <td><%= book.pages %></td>
+        <td><%= book.estilo %></td>
+        
+           
+     
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>

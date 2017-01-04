@@ -1,0 +1,77 @@
+<p id="notice"><%= notice %></p>
+<div class="row">
+  <div class="col-md-12">
+    <h3>
+      <strong>Livro:</strong>
+      <%= @book.nome %>
+    </h3>
+
+  </div>
+</div>  
+<div class="row">
+  <div class="col-md-6">
+    <p>
+      <%= image_tag @book.capa %>
+    </p>
+  </div>
+  <div class="col-md-6">
+    <br>
+    <br>
+    <br>
+    
+    <p>
+      <strong>Livro:</strong>
+      <%= @book.nome %>
+    </p>
+    
+    <p>
+      <strong>Autor:</strong>
+      <%= @book.autor %>
+    </p>
+
+    <p>
+      <strong>Editora:</strong>
+      <%= @book.editora %>
+    </p>
+
+    <p>
+      <strong>Pages:</strong>
+      <%= @book.pages %>
+    </p>
+
+    <p>
+      <strong>Isbn:</strong>
+      <%= @book.isbn %>
+    </p>
+
+    <p>
+      <strong>Edicao:</strong>
+      <%= @book.edicao %>
+    </p>
+
+    <p>
+      <strong>Data:</strong>
+      <%= @book.data %>
+    </p>
+
+    <p>
+      <strong>Estilo:</strong>
+      <%= @book.estilo %>
+    </p>
+    
+    <p>
+      <strong>Jah leu este livro?:</strong>
+      <%= @book.unread?(current_user) %> 
+    </p>    
+    <br>
+    <%= link_to 'Lido ',mark_as_read_book_path, method: :post %>
+  </div>  
+</div>
+<br>
+<br>
+
+<% if current_user.role == 'admin' %>
+  <%= link_to 'Edit', edit_book_path(@book), method: :post, class:  "btn btn-primary btn-lg btn-block" %>
+<% end %>
+
+<%= link_to 'Back', books_path, class:  "btn btn-default btn-lg btn-block" %>

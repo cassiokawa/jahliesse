@@ -1,0 +1,83 @@
+<%= form_for(@book) do |f| %>
+  <% if @book.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@book.errors.count, "error") %> prohibited this book from being saved:</h2>
+
+      <ul>
+      <% @book.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <div class="row">
+    <div class="col-md-6">
+      <div class="form-group">
+        <%= f.text_field :nome , placeholder:"Nome do livro" , class: "form-control" %>
+      </div>
+    </div>
+    <div class="col-md-6">
+        <div class="form-group">
+          <%= f.text_field :autor , placeholder:"Nome do autor" , class: "form-control" %>
+        </div>
+     </div>
+  </div>
+  <div class="row">
+    <div class="col-md-6">
+      <div class="form-group">
+        <%= f.text_field :editora , placeholder:"Nome da editora" , class: "form-control" %>
+      </div>
+    </div>  
+    <div class="col-md-6">  
+      <div class="form-group">
+        <%= f.text_field :pages , placeholder: 'Numero de paginas'  , class: "form-control" %>
+      </div>
+    </div>
+  </div>    
+  <div class="row">
+    <div class="col-md-6">
+      <div class="form-group">
+        <%= f.text_field :isbn , placeholder:"ISBN" , class: "form-control" %>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="form-group">
+        <%= f.text_field :edicao , placeholder:"Numero da edicao" , class: "form-control" %>
+      </div>
+    </div>  
+  </div>    
+  <div class="row">
+    <div class="col-md-6">
+      <div class="form-group">
+        <%= f.select :estilo , options_for_select(["Romance","Ficcao","Didatico","Terror","AutoAjuda"]),{} , class: "form-control" %>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="form-group">
+        <%= f.text_field :tag , placeholder:"Tag" , class: "form-control" %>
+      </div>    
+    </div>
+  </div>
+  <div class="row">
+    <div class="form-group">
+      <div class="col-md-12">
+        <%= f.text_field :data,placeholder:"01/02/2017 " ,  id:"datepicker1" %>
+      </div>
+    </div>
+  </div>
+  <br>
+  <div class="row"> 
+    <div class="col-md-12">
+      <div class="actions">
+        <%= f.submit class: "btn btn-primary btn-lg btn-block" %>
+      </div>
+    </div>
+  </div>
+
+<% end %>
+
+<script type="text/javascript">
+  $(document).ready(function(){
+    $('#datepicker1').datepicker();
+  });
+</script>
